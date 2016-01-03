@@ -4,6 +4,7 @@
 angular.module('myApp', [
   'ngRoute',
   'myApp.home',
+  'myApp.hvac',
   'myApp.view1',
   'myApp.view2',
   'myApp.version'
