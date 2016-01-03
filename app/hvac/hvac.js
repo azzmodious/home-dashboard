@@ -3,7 +3,7 @@
 angular.module('myApp.hvac', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/hvac', {
+  $routeProvider.when('/', {
     templateUrl: 'hvac/hvac.html',
     controller: 'hvacCtrl'
   });
