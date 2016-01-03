@@ -7,18 +7,47 @@
         </div>
        
         <div>
-            <div class="btn btn-primary btn-block" style="height: 250px;padding: 30px;">
-                <i class="fa fa-power-off fa-rotate-180 showbox" style="font-size: 150px;"></i><span style="font-family: 'Quicksand', sans-serif; font-weight: bold; font-size: 75px">N</span><br/>
-                <span class="big_tile_button_label">Main Heat</span>
+            <!--<div class="btn {{states[mainHeat.state]}} btn-block" style="height: 250px;padding: 30px;" ng-switch on="mainHeat.state">
+                <div ng-switch-when="off">
+                    <i class="fa fa-power-off fa-rotate-180 showbox" style="font-size: 150px;"></i>
+                    <span style="font-family: 'Quicksand', sans-serif; font-weight: bold; font-size: 75px">FF</span><br/>
+                    <span class="big_tile_button_label">Main Heat</span>
+                </div>
+                <div>
+                </div>
+                
+            </div>-->
+            <div style="margin-bottom: 30px;" ng-switch on="mainHeat.state">
+                <div ng-click="onMainHeatClick()" ng-switch-when="off" class="btn btn-danger btn-block" style="height: 250px;padding: 30px;">
+                    <i class="fa fa-power-off fa-rotate-180" style="font-size: 150px;"></i>
+                    <span style="font-family: 'Quicksand', sans-serif; font-weight: bold; font-size: 75px">FF</span><br/>
+                    <span class="big_tile_button_label">Main Heat</span>
+                </div>
+                <div ng-click="onMainHeatClick()" ng-switch-when="on" class="btn btn-success btn-block" style="height: 250px;padding: 30px;">
+                    <i class="fa fa-power-off" style="font-size: 150px;"></i>
+                    <span style="font-family: 'Quicksand', sans-serif; font-weight: bold; font-size: 75px">N</span><br/>
+                    <span class="big_tile_button_label">Main Heat</span>
+                </div>
+                <div ng-click="onMainHeatClick()" ng-switch-when="connected" class="btn btn-primary btn-block" style="height: 250px;padding: 30px;">
+                    <i class="fa fa-power-off" style="font-size: 150px;"></i>
+                    <span style="font-family: 'Quicksand', sans-serif; font-weight: bold; font-size: 75px">FF</span><br/>
+                    <span class="big_tile_button_label">Main Heat</span>
+                </div>
+                <div ng-click="onMainHeatClick()" ng-switch-when="disconnected" class="btn btn-primary btn-block disabled" style="height: 250px;padding: 30px;">
+                    <i class="fa fa-power-off" style="font-size: 150px;"></i>
+                    <span style="font-family: 'Quicksand', sans-serif; font-weight: bold; font-size: 75px">FF</span><br/>
+                    <span class="big_tile_button_label">Main Heat</span>
+                </div>
+            
             </div>
             <div class="btn btn-default btn-block" style="height: 250px;padding: 30px;">
-                <img src="http://apidev.accuweather.com/developers/Media/Default/WeatherIcons/02-s.png" style="width: 250px;"></img><br/>
-                <div>40&deg;</div>
+                <img src="http://apidev.accuweather.com/developers/Media/Default/WeatherIcons/0{{weatherIcon}}-s.png" style="width: 250px;"></img><br/>
+                <div>{{outsideTemp}}&deg;</div>
                 <span class="big_tile_button_label">Finneytown OH</span>
             </div>
             <div style="background-color: lightgrey">
-                <!--<img src="http://apidev.accuweather.com/developers/Media/Default/WeatherIcons/02-s.png"></img>-->
-                {{weatherText[0].Imperial.Value}}
+                <!--<img src="http://apidev.accuweather.com/developers/Media/Default/WeatherIcons/02-l.png"></img>-->
+                
             </div>
         </div>
     </div>
@@ -96,6 +125,20 @@
         </div>
         <div>
             <ul class="timeline">
+                <li ng-repeat="e in events" class="timeline-inverted">
+                  
+                    <div class="timeline-badge warning"><i class="glyphicon glyphicon-fire"></i></div>
+                  
+                  
+                  <div class="timeline-panel">
+                    <div class="timeline-heading">
+                      <h4 class="timeline-title">{{e.title}}</h4>
+                    </div>
+                    <div class="timeline-body">
+                      <p>{{e.message}}</p>
+                    </div>
+                  </div>
+                </li>
                 <li class="timeline-inverted">
                   <div class="timeline-badge"><i class="glyphicon glyphicon-scale"></i></div>
                   <div class="timeline-panel">
