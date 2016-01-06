@@ -5,6 +5,7 @@ angular.module('myApp', [
   'ngRoute',
   'myApp.home',
   'myApp.hvac',
+  'myApp.devices',
   'myApp.deviceServices',
   'myApp.view1',
   'myApp.view2',

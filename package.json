@@ -33,7 +33,10 @@
   "dependencies": {
     "bootstrap": "^3.3.6",
     "chartjs": "^0.2.5",
+    "express": "^4.13.3",
     "font-awesome": "^4.5.0",
-    "socket.io": "^1.3.7"
+    "johnny-five": "^0.9.17",
+    "socket.io": "^1.3.7",
+    "wemo": "^0.2.1"
   }
 }

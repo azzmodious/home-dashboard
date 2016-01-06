@@ -19,6 +19,8 @@ angular.module('myApp.hvac', ['ngRoute'])
         off: "btn-danger", 
         disconnected: "btn-secondary active" 
     };
+    
+    $scope.heater1 = new Actuator('Den Heater', 'off');
     $scope.mainHeat = {
         state: 'on', //connected, on, off, disconnected 
         toggle: function(){
@@ -57,7 +59,8 @@ angular.module('myApp.hvac', ['ngRoute'])
                 var e = {
                     type: 'manual-on',
                     title: 'Max turned on the heat',
-                    message: 'Max turned on the main furnace. The current inside temp is 63 degrees & outside temp is '+$scope.outsideTemp, 
+                    message: 'Max turned on the main furnace. The current inside temp is 63 degrees & outside temp is '+
+                    $scope.outsideTemp, 
                     data: $scope.getSensorData()
                 }
                 
@@ -94,7 +97,11 @@ angular.module('myApp.hvac', ['ngRoute'])
            function(resp){
             $scope.outsideTemp = resp.data[0].Temperature.Imperial.Value;
             $scope.weatherIcon = resp.data[0].WeatherIcon;
-               console.log(resp.data[0]);
+            if($scope.weatherIcon.length == 1)
+            {
+                    $scope.weatherIcon = '0'+$scope.weatherIcon;
+            }
+            console.log(resp.data[0]);
            }, 
            function(resp){
                $scope.outsideTemp = "No Contact";

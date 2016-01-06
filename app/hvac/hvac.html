@@ -41,9 +41,9 @@
             
             </div>
             <div class="btn btn-default btn-block" style="height: 250px;padding: 30px;">
-                <img src="http://apidev.accuweather.com/developers/Media/Default/WeatherIcons/0{{weatherIcon}}-s.png" style="width: 250px;"></img><br/>
+                <img src="http://apidev.accuweather.com/developers/Media/Default/WeatherIcons/{{weatherIcon}}-s.png" style="width: 250px;"></img><br/>
                 <div>{{outsideTemp}}&deg;</div>
-                <span class="big_tile_button_label">Finneytown OH</span>
+            <span class="big_tile_button_label">Finneytown OH</span>
             </div>
             <div style="background-color: lightgrey">
                 <!--<img src="http://apidev.accuweather.com/developers/Media/Default/WeatherIcons/02-l.png"></img>-->
@@ -64,7 +64,7 @@
             </div>
             <div class="col-xs-6">
                 <div class="btn btn-warning btn-block tile_button">
-                    Space Heater 1
+                    {{heater1.name}}
                     <div style="font-size: 40px">ON</div>
                 </div>
             </div>
