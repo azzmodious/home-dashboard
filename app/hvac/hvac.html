@@ -88,9 +88,9 @@
         
         <div class="row" style="margin-bottom: 20px;">
             <div class="col-xs-6">
-                <div class="btn btn-info btn-block tile_button">
-                    <div>Basement Temp</div>
-                    <div style="font-size: 40px;">61&deg; </div>
+                <div class="btn btn-info btn-block tile_button" ng-click="onRefreshOfficeSensor()">
+                    <div>Office Temp</div>
+                    <div style="font-size: 40px;">{{officeTemp}}&deg; </div>
                 </div>
             </div>
             <div class="col-xs-6">
@@ -112,7 +112,7 @@
             <div class="col-xs-6">
                 <div class="btn btn-info btn-block tile_button">
                     <div>Office Temp</div>
-                     <div style="font-size: 40px;">68&deg; </div>
+                     <div style="font-size: 40px;">{{officeTemp}}&deg; </div>
                     
                 </div>
                 

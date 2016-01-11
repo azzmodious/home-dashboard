@@ -7,6 +7,7 @@ angular.module('myApp', [
   'myApp.hvac',
   'myApp.devices',
   'myApp.deviceServices',
+  'myApp.tempSensor',
   'myApp.view1',
   'myApp.view2',
   'myApp.version'

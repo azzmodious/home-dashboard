@@ -9,9 +9,10 @@ angular.module('myApp.hvac', ['ngRoute'])
   });
 }])
 
-.controller('hvacCtrl', function($scope, $http, raspberryPiSrv) {
+.controller('hvacCtrl', function($scope, $http, raspberryPiSrv, tempSensorSrv) {
     $scope.outsideTemp = "";
     $scope.weatherIcon = "";
+    $scope.officeTemp = "";
     $scope.events = [];
     $scope.states = {
         connected:  "btn-primary",
@@ -48,6 +49,22 @@ angular.module('myApp.hvac', ['ngRoute'])
             }
             $scope.$apply();
         });
+        
+        tempSensorSrv.connect(function(data){
+            tempSensorSrv.socket.on('temp', function(data){
+                console.info(data);
+                $scope.officeTemp = data.temperature;
+                $scope.$apply();
+            });
+            tempSensorSrv.socket.emit('getTemp', {});
+            
+        });
+        
+        
+    }
+    
+    $scope.onRefreshOfficeSensor = function(){
+         tempSensorSrv.socket.emit('getTemp');
     }
     $scope.onMainHeatClick = function(){
         console.info("mainHeat btn clicked");
